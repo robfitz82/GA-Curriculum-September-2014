@@ -17,10 +17,20 @@ var getDom = function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
           document.getElementById("container").innerHTML = xmlhttp.responseText;
 
-          //The DOM is ready here!!
+          document.getElementById("footer").addEventListener("click", function() {
+            alert("Footer was clicked");
+          });
+
+        var paragraphs = document.querySelectorAll(".paragraph");
+
+        for (var i = 0 ; i < paragraphs.length ; i++) {
+            paragraphs[i].addEventListener("click", function() {
+                alert("Click on paragraph worked");
+            });
+        }
         }
     }
 
-    xmlhttp.open("GET","http://localhost:3000/dynamicdom",true);
+    xmlhttp.open("GET","http://6377cbb2.ngrok.com/dynamicdom",true);
     xmlhttp.send();
 }
